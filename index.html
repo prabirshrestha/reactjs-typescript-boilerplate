@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>ReactJS TypeScript Boilerplate</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.js"></script>
+		<script>
+			requirejs.config({
+				paths: {
+					'react': 'https://fb.me/react-0.13.3'
+				}
+			});
+			require(['react', 'src/app'], function (React, app) {
+				React.render(
+					React.createElement(app.App, null),
+					document.getElementById('app')
+				);
+			});
+		</script>
+	</body>
+</html>
