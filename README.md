@@ -13,11 +13,10 @@ npm install -g ntypescript
 ## Compiling tsx to js
 
 ```bash
-cd src
-ntsc
+ntsc -p src
 ```
 
-If you want to watch for file changes use `ntsc -w`.
+If you want to watch for file changes use `ntsc -p src -w`.
 
 ## Starting the http-server
 
