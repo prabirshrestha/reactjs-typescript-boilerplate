@@ -3,7 +3,8 @@
 		".settings": true,
 		"**/.git": true,
 		"**/.DS_Store": true,
-		"**/*.js": { "when": "$(basename).tsx" },
+		"**/*.js": { "when": "$(basename).ts"},
+		"**/*.{js}": { "when": "$(basename).tsx"},
 		"**/*.js.map": true
 	}
 }
