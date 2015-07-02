@@ -1,6 +1,5 @@
 {
 	"files.exclude": {
-		".settings": true,
 		"**/.git": true,
 		"**/.DS_Store": true,
 		"**/*.js": { "when": "$(basename).ts"},
