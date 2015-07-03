@@ -1,6 +1,6 @@
 # ReactJS Boilerplate for TypeScript
 
-TypeScript will official support JSX. Currently you will need to manually compile the typescript compiler
+TypeScript will officially support JSX. Currently you will need to manually compile the typescript compiler
 from the master branch or use the nightly typescript npm package.
 
 You can install using the following command line. This will not override the default typescript compiler.
