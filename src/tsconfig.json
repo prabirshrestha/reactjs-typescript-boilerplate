@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "jsx": "react",
-        "module": "amd",
+        "module": "umd",
         "sourceMap": true,
         "target": "ES5"
     }
