@@ -1,0 +1,41 @@
+{
+  "name": "reactjs-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "TypeScript will officially support JSX. Currently you will need to manually compile the typescript compiler\r from the master branch or use the nightly typescript npm package.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --config=webpack.config.js --port=3000 --progress --colors --watch --devtool source-map --hot",
+    "build": "node_modules/.bin/webpack --config=webpack.config.js --progress --colors --devtool source-map",
+    "build:prod": "node_modules/.bin/webpack --config=webpack.config.js --progress --colors --optimize-minimize --devtool source-map",
+    "test": "node_modules/.bin/testem",
+    "test:ci": "node_modules/.bin/testem ci -R xunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabirshrestha/reactjs-typescript-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabirshrestha/reactjs-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/prabirshrestha/reactjs-typescript-boilerplate#readme",
+  "dependencies": {
+    "css-loader": "^0.15.1",
+    "es5-shim": "^4.1.7",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "node-libs-browser": "^0.5.2",
+    "ntypescript": "^1.201507021036.1",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.7",
+    "style-loader": "^0.12.3",
+    "testem": "^0.8.5",
+    "ts-loader": "^0.4.5",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "devDependencies": {
+    "glob": "^5.0.13"
+  }
+}
