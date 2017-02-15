@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "jsx": "react",
-        "module": "amd",
-        "sourceMap": true,
-        "target": "ES5"
-    }
-}
