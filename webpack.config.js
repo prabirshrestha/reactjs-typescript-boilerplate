@@ -1,14 +1,14 @@
 var path = require('path');
+const webpack = require('webpack');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
-const HTML = require('html-webpack-plugin');
-const webpack = require('webpack');
 const Dashboard = require('webpack-dashboard/plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HTML = require('html-webpack-plugin');
 
 var root = __dirname;
 var build = path.join(root, 'build');
 
-var plugins = []
 module.exports = env => {
     const isProd = env && env.production;
 
@@ -32,7 +32,36 @@ module.exports = env => {
         },
         module: {
             rules: [
-                { test: /\.tsx?$/, use: ['awesome-typescript-loader'] },
+                {
+                    test: /\.tsx?$/,
+                    use: ['awesome-typescript-loader']
+                },
+                {
+                    test: /\.css$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true,
+                                    modules: true,
+                                    importLoaders: true,
+                                }
+                            },
+                            {
+                                loader: 'postcss-loader',
+                                options: {
+                                    plugins: function() {
+                                        return [
+                                            require('autoprefixer')
+                                        ];
+                                    }
+                                }
+                            }
+                        ]
+                    })
+                },
             ]
         },
         plugins: [ /* prod and dev plugins */
@@ -43,6 +72,7 @@ module.exports = env => {
                 'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
             }),
             new HTML({ template: 'src/index.html', minify: { collapseWhitespace: isProd } }),
+            new ExtractTextPlugin(isProd ? '[name].[hash].css' : '[name].css'),
         ].concat(isProd
             ? [ /* prod only plugins */
                 new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
