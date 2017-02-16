@@ -42,7 +42,8 @@
     "typescript": "^2.1.6",
     "webpack": "^2.2.1",
     "webpack-dashboard": "^0.3.0",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.3.0",
+    "webpack-manifest-plugin": "^1.1.0"
   },
   "dependencies": {
     "preact": "^7.2.0"

@@ -5,6 +5,7 @@ const Copy = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTML = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const OfflinePlugin = require('offline-plugin');
 
 const root = __dirname;
@@ -74,6 +75,7 @@ module.exports = env => {
             }),
             new HTML({ template: 'src/index.html', minify: { collapseWhitespace: isProd } }),
             new ExtractTextPlugin(isProd ? '[name].[hash].css' : '[name].css'),
+            new ManifestPlugin({ fileName: 'asset-manifest.json' })
         ].concat(isProd
             ? [ /* prod only plugins */
                 new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
