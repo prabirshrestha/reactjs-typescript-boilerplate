@@ -1,3 +1,5 @@
+import './pwa';
+
 const styles = require('./app.css') as any;
 
 import * as React from 'react';

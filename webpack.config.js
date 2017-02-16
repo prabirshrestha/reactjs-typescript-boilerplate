@@ -1,13 +1,14 @@
-var path = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTML = require('html-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
-var root = __dirname;
-var build = path.join(root, 'build');
+const root = __dirname;
+const build = path.join(root, 'build');
 
 module.exports = env => {
     const isProd = env && env.production;
@@ -91,12 +92,13 @@ module.exports = env => {
                         join_vars: 1,
                         evaluate: 1
                     }
-                })
+                }),
+                new OfflinePlugin(),
             ]
             : [ /* dev only plugins */
                 new webpack.HotModuleReplacementPlugin(),
                 new webpack.NamedModulesPlugin(),
-                new Dashboard()
+                new Dashboard(),
             ]
         ),
         devtool: !isProd && 'eval',
