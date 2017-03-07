@@ -16,7 +16,7 @@ module.exports = env => {
 
     return {
         entry: {
-            app: './src/app',
+            app: './src/index',
             vendor: './src/vendor'
         },
         output: {
@@ -25,12 +25,7 @@ module.exports = env => {
             publicPath: '/'
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.js'],
-            alias: {
-                // you may need `preact-compat` instead!
-                'react': 'preact/aliases',
-                'react-dom': 'preact/aliases'
-            }
+            extensions: ['.ts', '.tsx', '.js']
         },
         module: {
             rules: [
@@ -47,7 +42,7 @@ module.exports = env => {
                                 loader: 'css-loader',
                                 options: {
                                     sourceMap: true,
-                                    modules: true,
+                                    modules: false,
                                     importLoaders: true,
                                 }
                             },
