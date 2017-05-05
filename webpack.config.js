@@ -64,6 +64,7 @@ module.exports = env => {
         plugins: [ /* prod and dev plugins */
             new Clean([build], { root }),
             new Copy([{ context: 'src/static/', from: '**/*.*' }]),
+            new Copy([{ context: 'src/', from: 'web.config' }]),
             new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
